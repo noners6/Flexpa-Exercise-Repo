@@ -1,0 +1,21 @@
+/*
+.cardContainer {
+  margin: 5px;
+  align-items: left;
+  justify-content: center;
+  background-color: #e2d6ae;
+}
+
+.cardContentContainer {
+  align-items: left;
+  background-color: #e2d6ae;
+}
+
+.typeText {
+  text-decoration: underline;
+}
+
+*/
+.gridContainer {
+  width: 500px;
+}

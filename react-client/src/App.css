@@ -1,0 +1,16 @@
+.App {
+  text-align: center;
+}
+
+.gridContainer {
+  margin-bottom: 50px;
+}
+
+.cardList {
+  width: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
