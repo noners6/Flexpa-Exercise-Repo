@@ -51,7 +51,7 @@ function App() {
         );
 
         const fhirCoverageBody: any = await fhirCoverageResp.json();
-        setEoB(fhirCoverageBody?.entry || []);
+        //setEoB(fhirCoverageBody?.entry || []);
       },
     });
   }, []);
