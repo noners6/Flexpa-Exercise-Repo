@@ -6,7 +6,7 @@ interface ButtonPopoverProps {
   data: any;
 }
 
-const ButtonPopover = (props: ButtonPopoverProps) => {
+const ButtonPopover = ({ data }: ButtonPopoverProps) => {
   const [anchorEl, setAnchorEl] =
     React.useState<HTMLButtonElement | null>(null);
 
@@ -25,7 +25,7 @@ const ButtonPopover = (props: ButtonPopoverProps) => {
       <Button
         size={"small"}
         sx={{
-          backgroundColor: "black",
+          variant: "contained",
           "&.MuiButtonBase-root:hover": {
             bgcolor: "gray",
           },
@@ -45,7 +45,9 @@ const ButtonPopover = (props: ButtonPopoverProps) => {
           horizontal: "left",
         }}
       >
-        <Typography sx={{ p: 2 }}>{props.data}</Typography>
+        <pre>
+          <Typography sx={{ p: 2 }}>{JSON.stringify(data, null, 2)}</Typography>
+        </pre>
       </Popover>
     </div>
   );

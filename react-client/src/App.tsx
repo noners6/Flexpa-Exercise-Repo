@@ -12,7 +12,8 @@ declare const FlexpaLink: {
 };
 
 function App() {
-  const [data, setData] = useState();
+  // TODO: remove eob in useState, and switch to empty array
+  // Then, switch in line
   const [eob, setEoB] = useState(EoB);
 
   useEffect(() => {
@@ -29,7 +30,6 @@ function App() {
             body: JSON.stringify({ publicToken }),
           });
         } catch (err) {
-          console.log("err", err);
           return <div>Error!</div>;
         }
 
@@ -51,13 +51,11 @@ function App() {
         );
 
         const fhirCoverageBody: any = await fhirCoverageResp.json();
-        setData(fhirCoverageBody.entry);
-        console.log(data, "DATA");
+        setEoB(fhirCoverageBody?.entry || []);
       },
     });
   }, []);
 
-  //{data && <pre>{JSON.stringify(data, null, 2)}</pre>}
   return (
     <div className="App">
       <Button
@@ -68,9 +66,11 @@ function App() {
         Authenticate
       </Button>
       <div className="cardList">
-        {eob && eob.map((entry: any) => <EobCard eob={entry?.resource} />)}
+        {eob &&
+          eob.map((entry: any) => (
+            <EobCard key={entry.resource.id} eob={entry?.resource} />
+          ))}
       </div>
-      {/*<pre>{JSON.stringify(eob, null, 2)}</pre>*/}
     </div>
   );
 }

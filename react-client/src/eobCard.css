@@ -1,13 +1,4 @@
-/*
-.cardContainer {
-  margin: 5px;
-  align-items: left;
-  justify-content: center;
-  background-color: #e2d6ae;
-}
-
 .cardContentContainer {
-  align-items: left;
   background-color: #e2d6ae;
 }
 
@@ -15,7 +6,8 @@
   text-decoration: underline;
 }
 
-*/
-.gridContainer {
+.cardContainer {
+  background-color: #e2d6ae;
   width: 500px;
+  margin-bottom: 25px;
 }

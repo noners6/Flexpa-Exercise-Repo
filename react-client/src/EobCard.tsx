@@ -1,57 +1,44 @@
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
+import { CardActions, CardContent, Typography } from "@mui/material";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import { ExplanationOfBenefit } from "fhir/r4";
+import React from "react";
 import "./eobCard.css";
-
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
+import ButtonPopover from "./PopoverButton";
 
 interface EobProps {
   eob: ExplanationOfBenefit;
 }
 
 export const EobCard = ({ eob }: EobProps) => {
-  console.log(eob?.type?.coding?.[0].display, "eob");
   return (
-    <Card className="gridContainer" variant="outlined">
+    <Card key={eob.id} className="cardContainer" variant="outlined">
       <CardContent className="cardContentContainer">
-        <Typography variant="h5" component="div"></Typography>
         <Typography
+          key="firstTypography"
           align="center"
-          marginTop="50px"
           sx={{ mb: 1.5 }}
           color="text.secondary"
         >
           <span className="typeText">Type of Record:</span>{" "}
           <div>{eob?.type?.coding?.[0]?.display}</div>
         </Typography>
-        <Typography align="left">
-          <ul>
-            <li>
+        <Typography key="secondTypography" align="left">
+          <ul key={eob.id}>
+            <li key={eob.use}>
               <span className="typeText">Use:</span> {eob?.use}
             </li>
-            <li>
+            <li key={eob.status}>
               <span className="typeText">Status:</span> {eob?.status}
             </li>
-            <li>
+            <li key={eob.insurer.display}>
               <span className="typeText">Insurer:</span> {eob?.insurer?.display}
             </li>
-            <li>
+            <li key={eob.provider.display}>
               <span className="typeText">Provider:</span>{" "}
               {eob?.provider?.display}
             </li>
             {eob?.facility?.display && (
-              <li>
+              <li key={eob?.facility?.display}>
                 <span className="typeText">Facility:</span>{" "}
                 {eob?.facility?.display}
               </li>
@@ -59,11 +46,10 @@ export const EobCard = ({ eob }: EobProps) => {
           </ul>
         </Typography>
       </CardContent>
-      <Box textAlign={"center"}>
-        <CardActions>
-          <Button size="large">Go to Full View</Button>
-        </CardActions>
-      </Box>
+
+      <CardActions>
+        <ButtonPopover data={eob} />
+      </CardActions>
     </Card>
   );
 };
