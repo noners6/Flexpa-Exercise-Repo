@@ -9,6 +9,7 @@ This is a simple one page app that goes through a similar proccess that the `qui
 3. I have been having issues with CORS errors. The page would load properly
 
 Working version of the app:
+
 <img width="584" alt="Screen Shot 2022-11-13 at 4 13 36 PM" src="https://user-images.githubusercontent.com/52838675/201544957-e5623bfe-8fb5-4a09-8b7e-2673f88ab751.png">
 
 ## Available Scripts
