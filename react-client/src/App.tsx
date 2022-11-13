@@ -1,7 +1,6 @@
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import { EoB } from "./eob";
 import { EobCard } from "./EobCard";
 import "./eobCard.css";
 import { FlexpaConfig, LinkExchangeResponse } from "./types/flexpa_types";
@@ -14,11 +13,11 @@ declare const FlexpaLink: {
 function App() {
   // TODO: remove eob in useState, and switch to empty array
   // Then, switch in line
-  const [eob, setEoB] = useState(EoB);
+  const [eob, setEoB] = useState([]);
 
   useEffect(() => {
     FlexpaLink.create({
-      publishableKey: "pk_test_FCcXpCkSRvk5G2yKt8tH5fVFyHNk9vKa3k6ry9-X9Fk", // Defined in .env
+      publishableKey: "pk_test_Hwwr5Cy-ql3oh3vJ0KE9S4eMXQRrbJPYPpJwQkCmcrg", // Defined in .env
       onSuccess: async (publicToken: string) => {
         let resp;
         try {
@@ -30,6 +29,7 @@ function App() {
             body: JSON.stringify({ publicToken }),
           });
         } catch (err) {
+          console.log("err", err);
           return <div>Error!</div>;
         }
 
@@ -40,7 +40,7 @@ function App() {
         const body = (await resp.json()) as LinkExchangeResponse;
         const { accessToken, expiresIn } = body;
 
-        const fhirCoverageResp = await fetch(
+        const fhirExplanationOfBenefits = await fetch(
           `https://api.flexpa.com/fhir/ExplanationOfBenefit?patient=$PATIENT_ID`,
           {
             method: "GET",
@@ -50,8 +50,13 @@ function App() {
           }
         );
 
-        const fhirCoverageBody: any = await fhirCoverageResp.json();
-        //setEoB(fhirCoverageBody?.entry || []);
+        const fhirExplanationOfBenefitsBody: any =
+          await fhirExplanationOfBenefits.json();
+
+        console.log(fhirExplanationOfBenefitsBody, "body");
+        console.log(fhirExplanationOfBenefits, "no body");
+
+        setEoB(fhirExplanationOfBenefitsBody.entry || []);
       },
     });
   }, []);
