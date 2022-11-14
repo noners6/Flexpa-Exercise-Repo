@@ -54,9 +54,6 @@ function App() {
         const fhirExplanationOfBenefitsBody: any =
           await fhirExplanationOfBenefits.json();
 
-        console.log(fhirExplanationOfBenefitsBody, "body");
-        console.log(fhirExplanationOfBenefits, "no body");
-
         setEoB(fhirExplanationOfBenefitsBody.entry || []);
       },
     });
