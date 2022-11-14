@@ -18,3 +18,10 @@ Working version of the app:
 In the project director, after running the server, run:
 
 ### `npm start`
+
+
+## Design decision, proccess etc:
+
+In terms of design, I opted for a very simple one that mimicks the structure of the quickstart, albit not as intricate. My app uses MUI cards as containers for each EOB, and a combination of native MUI styling and css styling. 
+
+The main tqo components are App.tsx and eobCard.tsx. The App houses the API call, the useEffect, and takes care of some styling that happens outside the card. It is then responsible for calling eobCard for each individual entry within a list of EoBs. eobCard.tsx is responsible for rendering and styling each individual card.
