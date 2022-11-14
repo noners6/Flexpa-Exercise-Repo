@@ -1,4 +1,4 @@
-# To run this, please go to `react-client` to see instruction. There is a secondary readme there. 
+## To run this, please go to `react-client` to see instruction. There is a secondary readme there. 
 
 # <img src="./flexpa_logo.png" height="60px" align="center" alt="Flexpa logo"> Flexpa Quickstart
 
