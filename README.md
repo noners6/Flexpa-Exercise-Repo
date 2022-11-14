@@ -1,3 +1,5 @@
+# To run this, please go to `react-client` to see instruction. There is a secondary readme there. 
+
 # <img src="./flexpa_logo.png" height="60px" align="center" alt="Flexpa logo"> Flexpa Quickstart
 
 This repository is a companion to Flexpa's [quickstart guide](https://www.flexpa.com/docs/guides/quickstart) which provides a detailed explanation of how this code example works.
