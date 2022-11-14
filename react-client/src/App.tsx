@@ -1,5 +1,6 @@
 import { Button } from "@mui/material";
 import React, { useEffect, useState } from "react";
+import { ReactComponent as Logo } from "../../react-client/src/assets/EOBColor.svg";
 import "./App.css";
 import { EobCard } from "./EobCard";
 import "./eobCard.css";
@@ -70,6 +71,9 @@ function App() {
       >
         Authenticate
       </Button>
+      <div className="imageContainer">
+        <Logo />
+      </div>
       <div className="cardList">
         {eob &&
           eob.map((entry: any) => (

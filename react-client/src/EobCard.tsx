@@ -17,7 +17,7 @@ export const EobCard = ({ eob }: EobProps) => {
           key="firstTypography"
           align="center"
           sx={{ mb: 1.5 }}
-          color="text.secondary"
+          color="black"
         >
           <span className="typeText">Type of Record:</span>{" "}
           <div>{eob?.type?.coding?.[0]?.display}</div>
@@ -30,13 +30,18 @@ export const EobCard = ({ eob }: EobProps) => {
             <li key={eob.status}>
               <span className="typeText">Status:</span> {eob?.status}
             </li>
-            <li key={eob.insurer.display}>
-              <span className="typeText">Insurer:</span> {eob?.insurer?.display}
-            </li>
-            <li key={eob.provider.display}>
-              <span className="typeText">Provider:</span>{" "}
-              {eob?.provider?.display}
-            </li>
+            {eob?.insurer?.display && (
+              <li key={eob.insurer.display}>
+                <span className="typeText">Insurer:</span>{" "}
+                {eob?.insurer?.display}
+              </li>
+            )}
+            {eob?.provider.display && (
+              <li key={eob.provider.display}>
+                <span className="typeText">Provider:</span>{" "}
+                {eob?.provider?.display}
+              </li>
+            )}
             {eob?.facility?.display && (
               <li key={eob?.facility?.display}>
                 <span className="typeText">Facility:</span>{" "}

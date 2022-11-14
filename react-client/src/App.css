@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  background-color: #f9fafb;
 }
 
 .cardList {
@@ -9,4 +10,9 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.imageContainer {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
